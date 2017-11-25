@@ -30,7 +30,9 @@ node server.js
 
 ## Big Picture
 
-TODO
+![alt text][big-picture]
+[big-picture]: https://github.com/https://github.com/jphblais/social-aggregator/docs/big-picture.png "Big Picture"
+
 
 
 ## Tools used to build this app
