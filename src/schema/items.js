@@ -1,4 +1,4 @@
-import {
+const {
   GraphQLInterfaceType,
   GraphQLObjectType,
   GraphQLSchema,
@@ -7,8 +7,8 @@ import {
   GraphQLFloat,
   GraphQLList,
   GraphQLNonNull
-} from 'graphql';
-import Items from '../lib/items';
+} = require('graphql');
+const Items = require('../lib/items');
 
 const items = new Items();
 
@@ -39,4 +39,6 @@ const getById = {
   resolve: (root, {id}) => items.getById(id)
 };
 
-export const getItemField = getById;
+module.exports = {
+  getItemField: getById
+};

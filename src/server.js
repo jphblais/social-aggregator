@@ -1,9 +1,7 @@
-import { Schema } from './schema';
-import graphqlHTTP from 'express-graphql';
-import express from 'express';
-import 'babel-polyfill';
-import path from 'path';
-
+const { Schema } = require('./schema');
+const graphqlHTTP = require('express-graphql');
+const express = require('express');
+const path = require('path');
 
 const config = require('./config/main.json');
 const port = (!global.process.env.PORT) ? 1234 : global.process.env.PORT;

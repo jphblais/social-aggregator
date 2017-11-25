@@ -1,5 +1,5 @@
-import { GraphQLObjectType, GraphQLSchema } from 'graphql';
-import { getItemField } from './items';
+const { GraphQLObjectType, GraphQLSchema } = require('graphql');
+const { getItemField } = require('./items');
 
 const queryType = new GraphQLObjectType({
   name: 'Query',
@@ -9,7 +9,8 @@ const queryType = new GraphQLObjectType({
   })
 });
 
-
-export const Schema = new GraphQLSchema({
-  query: queryType
-});
+module.exports = {
+  Schema: new GraphQLSchema({
+    query: queryType
+  }),
+};

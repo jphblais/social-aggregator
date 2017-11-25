@@ -1,6 +1,10 @@
 # social aggregator
 Aggregate your social API's content into one GraphQL call.
 
+## Pupose
+For me to learn GraphQL.  For my student contributor (Dérek Falco), to learn JavaScript and modern web development.
+For my website to be more dynamic with less maintenance (no more personal blog).
+
 ## Usage
 
 ### Start the Development Server
@@ -24,7 +28,11 @@ If you want to deploy your application, simply copy the build folder and invoke
 node server.js
 ```
 
+## Big Picture
 
-### Tools used to build this app
+TODO
+
+
+## Tools used to build this app
 * [generator-es6-graphql](https://github.com/stylesuxx/generator-es6-graphql#readme)
 * And all the other packages in package.json
