@@ -30,7 +30,15 @@ node server.js
 
 ## Big Picture
 
-TODO
+1) Client Query content with a GraphQL Query
+2) Social Aggregator service analyse Query and send parallel requests (2.*) to social services API's
+3) Social services API's send back contents/responses (3.*)
+4) Social Aggregator merge social contents into an unified content and send it to the client.
+
+![alt text][big-picture]
+
+[big-picture]: https://raw.githubusercontent.com/jphblais/social-aggregator/develop/docs/big-picture.png "Big Picture"
+
 
 
 ## Tools used to build this app
