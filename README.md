@@ -31,6 +31,7 @@ node server.js
 ## Big Picture
 
 ![alt text][big-picture]
+
 [big-picture]: https://raw.githubusercontent.com/jphblais/social-aggregator/develop/docs/big-picture.png "Big Picture"
 
 
