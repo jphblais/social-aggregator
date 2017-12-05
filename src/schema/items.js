@@ -1,12 +1,8 @@
 const {
-  GraphQLInterfaceType,
   GraphQLObjectType,
-  GraphQLSchema,
   GraphQLString,
   GraphQLInt,
-  GraphQLFloat,
-  GraphQLList,
-  GraphQLNonNull
+  GraphQLNonNull,
 } = require('graphql');
 const Items = require('../lib/items');
 
@@ -15,16 +11,16 @@ const items = new Items();
 const itemType = new GraphQLObjectType({
   name: 'Item',
   description: 'An item.',
-  fields: () => ({
+  fields: {
     id: {
       description: 'The items id.',
-      type: GraphQLInt
+      type: GraphQLInt,
     },
     name: {
       description: 'The items name.',
-      type: GraphQLString
-    }
-  })
+      type: GraphQLString,
+    },
+  },
 });
 
 const getById = {
@@ -33,12 +29,12 @@ const getById = {
   args: {
     id: {
       description: 'ID of the item to retreive.',
-      type: new GraphQLNonNull(GraphQLInt)
-    }
+      type: new GraphQLNonNull(GraphQLInt),
+    },
   },
-  resolve: (root, {id}) => items.getById(id)
+  resolve: (root, { id }) => items.getById(id),
 };
 
 module.exports = {
-  getItemField: getById
+  getItemField: getById,
 };
