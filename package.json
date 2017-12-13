@@ -5,7 +5,8 @@
   "author": "Jean-Philippe Blais <jphblais@gmail.com>",
   "main": "src/server.js",
   "configs": {
-    "port": 1234
+    "port": 1234,
+    "hostname": "127.0.0.1"
   },
   "scripts": {
     "lint": "eslint src tools",
