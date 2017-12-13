@@ -4,6 +4,9 @@
   "description": "Aggregate your social API's content into one GraphQL call.",
   "author": "Jean-Philippe Blais <jphblais@gmail.com>",
   "main": "src/server.js",
+  "configs": {
+    "port": 1234
+  },
   "scripts": {
     "lint": "eslint src tools",
     "start": "node src/server.js",
