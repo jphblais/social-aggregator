@@ -2,9 +2,27 @@ const {
   GraphQLObjectType,
   GraphQLString,
   GraphQLList,
+  GraphQLID,
 } = require('graphql');
 
 const { twitter } = require('../drivers');
+
+const author = new GraphQLObjectType({
+  name: 'Author',
+  description: 'Author of the Tweet',
+  fields: {
+    id: { type: GraphQLID },
+    name: { type: GraphQLString },
+    screenName: {
+      type: GraphQLString,
+      resolve: user => user.screen_name,
+    },
+    url: {
+      type: GraphQLString,
+      resolve: user => `https://twitter.com/${user.screen_name}`,
+    },
+  },
+});
 
 const tweetType = new GraphQLObjectType({
   name: 'Tweet',
@@ -12,9 +30,9 @@ const tweetType = new GraphQLObjectType({
   fields: {
     id: {
       description: 'Id of the Tweet',
-      type: GraphQLString,
+      type: GraphQLID,
       resolve(tweet) {
-        return tweet.retweeted_status ? tweet.retweeted_status.id_str : tweet.id_str;
+        return tweet.retweeted_status ? tweet.retweeted_status.id : tweet.id;
       },
     },
     text: {
@@ -26,17 +44,9 @@ const tweetType = new GraphQLObjectType({
     },
     author: {
       description: 'Author of the tweet',
-      type: GraphQLString,
+      type: author,
       resolve(tweet) {
-        return tweet.retweeted_status ? tweet.retweeted_status.user.name : tweet.user.name;
-      },
-    },
-    Author: {
-      description: 'Author of the tweet',
-      type: GraphQLString,
-      deprecationReason: 'Deprecation test Bad naming',
-      resolve(tweet) {
-        return tweet.retweeted_status ? tweet.retweeted_status.user.name : tweet.user.name;
+        return tweet.retweeted_status ? tweet.retweeted_status.user : tweet.user;
       },
     },
     isRetweet: {
@@ -49,7 +59,7 @@ const tweetType = new GraphQLObjectType({
   },
 });
 
-const getUserTimeline = {
+const twitterTimeline = {
   description: 'Get the current user timeline',
   type: new GraphQLList(tweetType),
   resolve() {
@@ -63,5 +73,5 @@ const getUserTimeline = {
 };
 
 module.exports = {
-  getUserTimeline,
+  twitterTimeline,
 };
