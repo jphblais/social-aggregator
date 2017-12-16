@@ -1,4 +1,5 @@
 const Twitter = require('twitter');
+const githubAPI = require('./github');
 
 const twitterOauth = {
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -11,4 +12,5 @@ const twitter = new Twitter(twitterOauth);
 
 module.exports = {
   twitter,
+  githubAPI,
 };
